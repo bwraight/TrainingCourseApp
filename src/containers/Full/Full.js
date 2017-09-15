@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/Footer';
 
 import Dashboard from '../../views/Dashboard/Dashboard';
 import Courses from '../../views/Courses/Courses';
+import VideoPlayerPage from '../../views/VideoPlayer/VideoPlayerPage';
 
 class Full extends Component {
   render() {
@@ -22,7 +23,8 @@ class Full extends Component {
             <Container fluid>
               <Switch>
                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
-                  <Route path="/courses" name="Courses" component={Courses}/>
+                <Route exact path="/courses" name="Courses" component={Courses}/>
+                <Route path="/courses/:id" name="Course" component={VideoPlayerPage}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>

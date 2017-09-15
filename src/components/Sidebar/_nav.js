@@ -3,11 +3,12 @@ export default {
     {
       name: 'Dashboard',
       url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW'
-      }
+      icon: 'icon-speedometer'
+    },
+    {
+      name: 'Courses',
+      url: '/courses',
+      icon: 'icon-graduation'
     }
   ]
 };

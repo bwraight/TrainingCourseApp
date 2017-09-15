@@ -12,7 +12,7 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import '../scss/style.scss'
 
 // Containers
-import Full from './containers/Full/'
+import Full from './containers/Full/Full'
 
 const history = createBrowserHistory();
 

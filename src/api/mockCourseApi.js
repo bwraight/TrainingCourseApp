@@ -15,7 +15,7 @@ const courses = [
   {
     id: "clean-code",
     title: "Clean Code: Writing Code for Humans",
-    watchHref: "http://www.pluralsight.com/courses/writing-clean-code-humans",
+    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
     authorId: "cory-house",
     length: "3:10",
     category: "Software Practices"
@@ -23,7 +23,7 @@ const courses = [
   {
     id: "architecture",
     title: "Architecting Applications for the Real World",
-    watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
+    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
     authorId: "cory-house",
     length: "2:52",
     category: "Software Architecture"
@@ -31,7 +31,7 @@ const courses = [
   {
     id: "career-reboot-for-developer-mind",
     title: "Becoming an Outlier: Reprogramming the Developer Mind",
-    watchHref: "http://www.pluralsight.com/courses/career-reboot-for-developer-mind",
+    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
     authorId: "cory-house",
     length: "2:30",
     category: "Career"
@@ -39,21 +39,12 @@ const courses = [
   {
     id: "web-components-shadow-dom",
     title: "Web Component Fundamentals",
-    watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
     authorId: "cory-house",
     length: "5:10",
     category: "HTML5"
   }
 ];
-
-function replaceAll(str, find, replace) {
-  return str.replace(new RegExp(find, 'g'), replace);
-}
-
-//This would be performed on the server in a real app. Just stubbing in.
-const generateId = (course) => {
-  return replaceAll(course.title, ' ', '-');
-};
 
 class CourseApi {
   static getAllCourses() {

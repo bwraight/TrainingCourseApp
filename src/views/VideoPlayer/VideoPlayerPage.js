@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Input} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import VideoPlayer from './VideoPlayer';
@@ -18,16 +18,24 @@ class VideoPlayerPage extends React.Component {
     }
   }
 
+
   render() {
-    debugger;
     return (
       <div className="container">
         <VideoPlayer course={this.state.course}/>
+        <input
+          className="btn btn-behance"
+          value="Click Me!"
+          onClick={onClick}/>
       </div>
     );
   }
 
 
+}
+
+function onClick() {
+  alert("clicked")
 }
 
 function getCourseById(courses, courseId) {

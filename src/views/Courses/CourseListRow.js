@@ -5,7 +5,7 @@ const CourseListRow = ({course}) => {
   return (
     <tr>
       <td><Link to={'/courses/' + course.id}>Watch</Link></td>
-      <td>{course.acf.title}</td>
+      <td>{course.title}</td>
     </tr>
   );
 };

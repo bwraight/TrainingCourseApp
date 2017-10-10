@@ -1,4 +1,4 @@
-import CourseApi from '../api/wordPressApi';
+import CourseApi from '../api/mockCourseApi';
 import * as types from './actionTypes';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 

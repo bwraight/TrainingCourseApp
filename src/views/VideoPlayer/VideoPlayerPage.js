@@ -47,7 +47,7 @@ class VideoPlayerPage extends React.Component {
       <div className="container">
         <CustomPlayer
           autoPlay
-          src="http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v"/>
+          course={this.state.course}/>
       </div>
     );
   }

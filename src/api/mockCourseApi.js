@@ -5,44 +5,22 @@ import delay from './delay';
 // All calls return promises.
 const courses = [
   {
-    id: "react-flux-building-applications",
-    title: "Building Applications in React and Flux",
-    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
-    authorId: "cory-house",
-    length: "5:08",
-    category: "JavaScript"
+    id: "Big_Buck_Bunny_Trailer_1",
+    title: "Big Buck Bunny Trailer 1",
+    src: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+    options: ["option1", "option2"]
   },
   {
-    id: "clean-code",
-    title: "Clean Code: Writing Code for Humans",
-    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
-    authorId: "cory-house",
-    length: "3:10",
-    category: "Software Practices"
+    id: "Big_Buck_Bunny_Trailer_2",
+    title: "Big Buck Bunny Trailer 2",
+    src: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+    options: ["option1", "option2", "option3", "option4"]
   },
   {
-    id: "architecture",
-    title: "Architecting Applications for the Real World",
-    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
-    authorId: "cory-house",
-    length: "2:52",
-    category: "Software Architecture"
-  },
-  {
-    id: "career-reboot-for-developer-mind",
-    title: "Becoming an Outlier: Reprogramming the Developer Mind",
-    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
-    authorId: "cory-house",
-    length: "2:30",
-    category: "Career"
-  },
-  {
-    id: "web-components-shadow-dom",
-    title: "Web Component Fundamentals",
-    watchHref: "http://localhost:8888/h5p_wordpress/wp-admin/admin-ajax.php?action=h5p_embed&id=1",
-    authorId: "cory-house",
-    length: "5:10",
-    category: "HTML5"
+    id: "Big_Buck_Bunny_Trailer_3",
+    title: "Big Buck Bunny Trailer 3",
+    src: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+    options: ["option1", "option2", "option3"]
   }
 ];
 

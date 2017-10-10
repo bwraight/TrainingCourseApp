@@ -1,14 +1,13 @@
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
-
-const courses_url = "http://localhost:8888/h5p_wordpress/wp-json/wp/v2/courses";
+import * as urls from './urls';
 
 class CourseApi {
   static getAllCourses() {
 
     return new Promise((resolve, reject) => {
-        fetch(courses_url)
+        fetch(urls.COURSE_URL)
           .then(response => {
               if (response.status !== 200) {
                 console.log('Looks like there was a problem. Status Code: ' +

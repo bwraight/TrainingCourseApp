@@ -1,15 +1,33 @@
 import React, {PropTypes, Input} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import VideoPlayer from './VideoPlayer';
+import CustomPlayer from './VideoPlayer';
+import StateMachine from 'javascript-state-machine';
 
 class VideoPlayerPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      course: Object.assign({}, this.props.course)
-    }
+      course: Object.assign({}, this.props.course),
+      fsm: new StateMachine({
+        init: 'solid',
+        transitions: [
+          { name: 'melt',     from: 'solid',  to: 'liquid' },
+          { name: 'freeze',   from: 'liquid', to: 'solid'  },
+          { name: 'vaporize', from: 'liquid', to: 'gas'    },
+          { name: 'condense', from: 'gas',    to: 'liquid' }
+        ],
+        methods: {
+          onMelt:     function() { console.log('I melted')    },
+          onFreeze:   function() { console.log('I froze')     },
+          onVaporize: function() { console.log('I vaporized') },
+          onCondense: function() { console.log('I condensed') }
+        }
+      })
+    };
+
+    this.changeState = this.changeState.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,24 +36,21 @@ class VideoPlayerPage extends React.Component {
     }
   }
 
+  changeState() {
+    console.log(this.state.fsm.state);
+    this.state.fsm.melt();
+    console.log(this.state.fsm.state);
+  }
 
   render() {
     return (
       <div className="container">
-        <VideoPlayer course={this.state.course}/>
-        <input
-          className="btn btn-behance"
-          value="Click Me!"
-          onClick={onClick}/>
+        <CustomPlayer
+          autoPlay
+          src="http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v"/>
       </div>
     );
   }
-
-
-}
-
-function onClick() {
-  alert("clicked")
 }
 
 function getCourseById(courses, courseId) {

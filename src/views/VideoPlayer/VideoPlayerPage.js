@@ -1,8 +1,9 @@
-import React, {PropTypes, Input} from 'react';
+import React, {Input} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import CustomPlayer from './VideoPlayer';
-import StateMachine from 'javascript-state-machine';
+import CustomPlayer from '../../CustomVideoPlayer/CustomPlayer';
+import Stately from 'stately.js';
 
 class VideoPlayerPage extends React.Component {
   constructor(props, context) {
@@ -10,44 +11,55 @@ class VideoPlayerPage extends React.Component {
 
     this.state = {
       course: Object.assign({}, this.props.course),
-      fsm: new StateMachine({
-        init: 'solid',
-        transitions: [
-          { name: 'melt',     from: 'solid',  to: 'liquid' },
-          { name: 'freeze',   from: 'liquid', to: 'solid'  },
-          { name: 'vaporize', from: 'liquid', to: 'gas'    },
-          { name: 'condense', from: 'gas',    to: 'liquid' }
-        ],
-        methods: {
-          onMelt:     function() { console.log('I melted')    },
-          onFreeze:   function() { console.log('I froze')     },
-          onVaporize: function() { console.log('I vaporized') },
-          onCondense: function() { console.log('I condensed') }
-        }
-      })
+      fsm: Object.assign({}, this.setupFSM(this.props.course.statesObject)),
     };
 
     this.changeState = this.changeState.bind(this);
+    this.setupFSM = this.setupFSM.bind(this);
+    this.getMultiChoiceOptions = this.getMultiChoiceOptions.bind(this);
+    this.getVideoSrc = this.getVideoSrc.bind(this);
+  }
+
+  setupFSM(statesObject){
+    if(statesObject){
+      return Stately.machine(statesObject);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.course.id != nextProps.course.id) {
-      this.setState({course: Object.assign({}, nextProps.course)});
+      this.setState({
+        course: Object.assign({}, nextProps.course),
+        fsm: Object.assign({}, this.setupFSM(nextProps.course.statesObject))
+      });
     }
   }
 
-  changeState() {
-    console.log(this.state.fsm.state);
-    this.state.fsm.melt();
-    console.log(this.state.fsm.state);
+  getVideoSrc(){
+    if(this.state.fsm.getMachineState){
+      let videoSrc = this.state.course.videoSources.filter(
+        source => source.state == this.state.fsm.getMachineState()
+      );
+      return videoSrc[0].src;
+    }
+  }
+
+  getMultiChoiceOptions(){
+    if(this.state.fsm.getMachineEvents){
+      return this.state.fsm.getMachineEvents();
+    }
+  }
+
+  changeState(e) {
+    console.log(e.target.name);
+    this.state.fsm[e.target.name]();
+    this.forceUpdate();
   }
 
   render() {
     return (
-      <div className="container">
-        <CustomPlayer
-          autoPlay
-          course={this.state.course}/>
+      <div className="container-fluid">
+        <CustomPlayer videoSrc={this.getVideoSrc()} options={this.getMultiChoiceOptions()} onMultiChoiceClick={this.changeState}/>
       </div>
     );
   }

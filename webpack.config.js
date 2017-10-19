@@ -9,9 +9,11 @@ const extractSCSS = new ExtractTextPlugin('[name].styles.css');
 
 const BUILD_DIR = path.resolve(__dirname, 'build');
 const SRC_DIR = path.resolve(__dirname, 'src');
+const SVG_DIR = path.resolve(__dirname, 'public/img/svg');
 
 console.log('BUILD_DIR', BUILD_DIR);
 console.log('SRC_DIR', SRC_DIR);
+console.log('SVG_DIR', SVG_DIR);
 
 module.exports = (env = {}) => {
   return {
@@ -85,9 +87,28 @@ module.exports = (env = {}) => {
         {
           test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
           loader: 'file-loader',
+          exclude: [
+            path.resolve(SVG_DIR)
+            //, Any other svg font path
+          ],
           options: {
             name: './fonts/[name].[hash].[ext]'
           }
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "babel-loader"
+            },
+            {
+              loader: "react-svg-loader",
+              options: {
+                jsx: true, // true outputs JSX tags
+                name: './fonts/[name].[hash].[ext]'
+              }
+            }
+          ]
         }]
     },
     plugins: [

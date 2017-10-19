@@ -7,20 +7,23 @@ const courses = [
   {
     id: "Big_Buck_Bunny_Trailer_1",
     title: "Big Buck Bunny Trailer 1",
-    src: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-    options: ["option1", "option2"]
-  },
-  {
-    id: "Big_Buck_Bunny_Trailer_2",
-    title: "Big Buck Bunny Trailer 2",
-    src: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-    options: ["option1", "option2", "option3", "option4"]
-  },
-  {
-    id: "Big_Buck_Bunny_Trailer_3",
-    title: "Big Buck Bunny Trailer 3",
-    src: "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-    options: ["option1", "option2", "option3"]
+    videoSources: [
+      { 'state': 'OPEN', 'src': "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v" },
+      { 'state': 'CLOSED', 'src': "https://download.blender.org/durian/trailer/sintel_trailer-720p.mp4" },
+      { 'state': 'LOCKED', 'src': "http://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v" }
+    ],
+    statesObject: {
+      'OPEN': {
+        'close': 'CLOSED'
+      },
+      'CLOSED': {
+        'open': 'OPEN',
+        'lock': 'LOCKED'
+      },
+      'LOCKED': {
+        'unlock': 'CLOSED'
+      }
+    }
   }
 ];
 

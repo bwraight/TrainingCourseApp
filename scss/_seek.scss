@@ -1,0 +1,37 @@
+.seek-component {
+  position: relative;
+  flex-grow: 1;
+}
+
+.seek-track {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  right: 5px;
+  height: 4px;
+  transform: translateY(-50%);
+  background-color: #3e3e3e;
+}
+
+.seek-buffer,
+.seek-fill,
+.seek-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.seek-buffer {
+  background-color: #5a5a5a;
+}
+
+.seek-fill {
+  background: #fff;
+}
+
+.seek-input {
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}

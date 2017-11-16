@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'reactstrap';
 
-const MultiChoice = ({options, onClick, ended}) => {
+const MultiChoice = ({options, question, onClick, ended}) => {
 
   if(ended && options && options.length > 0) {
     return (
       <div className="component">
-        <div className=" multi-choice">
+        <div className="overlay-multi-choice-inner">
+          <p>{question}</p>
           {options.map(option =>
-            <li key={option} className="multi-choice-button">
-              <Button outline color="secondary" onClick={ (e) => onClick(e)} name={option}>{option}</Button>
-            </li>
+              <Button key={option} outline color="secondary" onClick={ (e) => onClick(e)} name={option}>{option}</Button>
           )}
         </div>
       </div>

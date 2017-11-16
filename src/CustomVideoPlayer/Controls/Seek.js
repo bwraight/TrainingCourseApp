@@ -1,17 +1,16 @@
 import React from 'react';
 
-export default ({ onChange, percentagePlayed, percentageBuffered, className, ariaLabel }) => {
-  debugger;
+export default ({ onChange, percentagePlayed, percentageBuffered, ariaLabel }) => {
   return (
-        <div className="control-component">
-            <div className="track">
+        <div className="seek-component">
+            <div className="seek-track">
                 <div
-                    className="buffer"
+                    className="seek-buffer"
                     style={{
                         width: `${percentageBuffered || 0}%`
                     }} />
                 <div
-                    className="fill"
+                    className="seek-fill"
                     style={{
                         width: `${percentagePlayed || 0}%`
                     }} />
@@ -23,7 +22,7 @@ export default ({ onChange, percentagePlayed, percentageBuffered, className, ari
                     orient="horizontal"
                     onChange={onChange}
                     aria-label={ariaLabel}
-                    className="control-input"
+                    className="seek-input"
                     value={percentagePlayed} />
             </div>
         </div>

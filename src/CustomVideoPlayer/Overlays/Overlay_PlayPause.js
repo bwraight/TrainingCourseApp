@@ -10,33 +10,27 @@ export default class PlayPauseOverlay extends Component {
     const {
       error,
       paused,
-      loading,
-      ended
+      loading
       } = this.props;
 
 
     if (error) {
       return (
-        <div className="play-pause-inner">
-                    <Report className="play-pause-icon" />
-                </div>
+        <div className="overlay-play-pause-inner">
+          <Report className="overlay-play-pause-icon"/>
+        </div>
       );
     } else if (loading) {
       return (
-        <div className="play-pause-inner">
-                    <Spin className="play-pause-icon"/>
-                </div>
+        <div className="overlay-play-pause-inner">
+          <Spin className="overlay-play-pause-icon"/>
+        </div>
       );
-    }
-    else if (ended) {
-        return (
-          <div/>
-        );
     } else if (paused) {
       return (
-        <div className="play-pause-inner">
-                    <PlayArrow className="play-pause-icon" />
-                </div>
+        <div className="overlay-play-pause-inner">
+          <PlayArrow className="overlay-play-pause-icon"/>
+        </div>
       );
     }
   }

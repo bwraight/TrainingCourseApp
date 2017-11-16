@@ -1,6 +1,5 @@
 .video-container {
   position: relative;
-  padding: 10px;
   font-family: Helvetica;
   font-size: 11px;
   height: 100%;
@@ -18,46 +17,6 @@
   color: #fff;
   text-align: center;
   background-color: rgba(0, 0, 0, 0);
-}
-
-.play-pause-inner {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  transform: translateY(-50%);
-  margin-left: -30px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.play-pause-icon {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 50%;
-  margin-left: -20px;
-  transform: translateY(-50%);
-  height: 40px;
-  width: 40px;
-  fill: '#fff';
-}
-
-.multi-choice {
-  display: inline-block;
-  position: absolute;
-  top: 25%;
-  right: 0;
-  left: 75%;
-  z-index: 2;
-}
-
-.multi-choice-button {
-  padding: 10px;
-  z-index: 2;
 }
 
 .video {
@@ -81,8 +40,10 @@
   flex-grow: 1;
 }
 
-.component:hover .controls {
+.video-container:hover .controls {
   opacity: 1;
 }
+
+
 
 

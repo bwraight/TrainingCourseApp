@@ -1,0 +1,38 @@
+.overlay-play-pause-component {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+}
+
+.overlay-play-pause-inner {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translateY(-50%);
+  margin-left: -30px;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 10px;
+}
+
+.overlay-play-pause-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 50%;
+  margin-left: -20px;
+  height: 40px;
+  width: 40px;
+  transform: translateY(-50%);
+}
